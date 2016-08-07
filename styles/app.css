@@ -1,5 +1,5 @@
 /**
- *
+ *css
  * Copyright 2015 Google Inc. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -42,15 +42,6 @@ body {
   -webkit-flex-wrap: nowrap;
       -ms-flex-wrap: nowrap;
           flex-wrap: nowrap;
-  -webkit-justify-content: flex-start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-align-items: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
-  -ms-flex-line-pack: stretch;
-      -webkit-align-content: stretch;
-          align-content: stretch;
   background: #ececec;
 }
 
@@ -61,8 +52,8 @@ a {
 .header {
   width: 100%;
   height: 156px;
-  background: #FF8F00;
-  color: #FFF;
+  background: #ff8f00;
+  color: #fff;
   font-size: 40px;
   font-weight: 400;
   padding: 0 0 0 72px;
@@ -92,20 +83,8 @@ a {
   opacity: 0.54;
 }
 
-body.details-active .story__title,
-body.details-active .story__by,
-body.details-active .story__score {
-  transition: opacity 0.5s ease-out;
-  opacity: 0 !important;
-}
-
-body.details-active .story {
-  background: linear-gradient(to bottom, #FFF 0%, #FFF 100%);
-}
-
 body.raised .header {
-  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.16),
-      0px 2px 5px 0px rgba(0, 0, 0, 0.23);
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.39);
 }
 
 main {
@@ -117,6 +96,7 @@ main {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   z-index: 0;
+  will-change: transform;
 }
 
 main.loading {
@@ -145,26 +125,17 @@ main.loading {
 
 .story {
   padding: 16px 16px 16px 72px;
-  background: #FFF;
-  background: linear-gradient(to bottom, #FFF 0%,#F4F4F4 100%);
+  background: #fff;
+  background: linear-gradient(to bottom, #fff 0%,#f4f4f4 100%);
   position: relative;
   min-height: 90px;
   cursor: pointer;
   transition: all 0.4s ease-out;
-}
-
-.story:after {
-  display: block;
-  content: '';
-  width: 100%;
-  position: absolute;
-  left: 0;
-  bottom: 0;
   border-bottom: 1px solid #dedede;
 }
 
-.story:nth-last-child(-n+1):after {
-  display: none;
+.story:nth-last-child(-n+1) {
+  border-bottom: none;
 }
 
 .story__title {
@@ -188,7 +159,7 @@ main.loading {
   position: absolute;
   width: 40px;
   height: 40px;
-  background: #FFB300;
+  background: #ffb300;
   border-radius: 50%;
   color: rgba(255,255,255,0.87);
   font-weight: 500;
@@ -199,9 +170,7 @@ main.loading {
   line-height: 40px;
 
   box-shadow:
-      0px 2px 5px 0px rgba(0, 0, 0, 0.06),
-      0px 2px 5px 0px rgba(0, 0, 0, 0.08),
-      0px 2px 7px 0px rgba(0, 0, 0, 0.10);
+      0px 2px 7px 0px rgba(0, 0, 0, 0.25);
 }
 
 .story-details {
@@ -214,36 +183,21 @@ main.loading {
   -webkit-flex-wrap: nowrap;
       -ms-flex-wrap: nowrap;
           flex-wrap: nowrap;
-  -webkit-justify-content: flex-start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-align-items: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
-  -ms-flex-line-pack: stretch;
-      -webkit-align-content: stretch;
-          align-content: stretch;
 
-  opacity: 0;
   position: fixed;
   top: 0;
   left: 100%;
   width: 100%;
   height: 100%;
-  background: white;
   z-index: 2;
-  box-shadow:
-      0px 2px 5px 0px rgba(0, 0, 0, 0.06),
-      0px 2px 5px 0px rgba(0, 0, 0, 0.08),
-      0px 2px 7px 0px rgba(0, 0, 0, 0.10);
-
+  background-color: white;
   overflow: hidden;
-  transition: opacity 0.3s ease-out;
+  transition: transform 0.3s;
+  will-change: transform;
 }
 
-.story-details * {
-  will-change: transform;
-  transform: translateZ(0);
+.story-details_in {
+  transform: translateX(-100vw);
 }
 
 .story-details__content {
@@ -259,14 +213,14 @@ main.loading {
 }
 
 .story-details__title {
-  color: #FFF;
+  color: #fff;
   font-size: 20px;
   font-weight: 400;
   line-height: 24px;
 }
 
 .story-details__title-link {
-  color: #FFF;
+  color: #fff;
   opacity: 0.6;
 }
 
@@ -278,7 +232,7 @@ main.loading {
 
 .story-details__header {
   padding: 16px 16px 64px 72px;
-  background: #FFA000;
+  background: #ffa000;
   position: absolute;
   left: 0;
   top: 0;
@@ -300,7 +254,7 @@ main.loading {
 }
 
 .story-details__meta {
-  background: #FFC107;
+  background: #ffc107;
   height: 40px;
   position: absolute;
   bottom: 0;
